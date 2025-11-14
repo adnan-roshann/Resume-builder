@@ -32,7 +32,9 @@ const dashboard = () => {
     
   }
 
-  const
+  const uploadResume = async (params) => {
+    
+  }
 
   useEffect(()=>{
     loadAllResumes()
