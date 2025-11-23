@@ -46,8 +46,12 @@ useEffect(()=>{
         </div>
 <div className='max-w-7xl mx-auto px-4 pb-8'>
     <div className='grid lg:grid-cols-12 gap-8'>
-      
+      {/* Left panel - form */}
+      <div></div>
 
+      {/* Right panel - preview */}
+      <div></div>
+      
     </div>
 </div>
 
