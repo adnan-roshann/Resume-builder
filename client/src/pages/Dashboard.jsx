@@ -29,10 +29,18 @@ const dashboard = () => {
     setShowCreateResume(false)
     navigate(`/app/builder/res123`)
 
+      
+
+
+
+
     
   }
 
-  const uploadResume = async (params) => {
+  const uploadResume = async (event)=>{ 
+    event.preventDefault()
+    setShowUploadeResume(false)
+    navigate(`/app/builder/res123`)
     
   }
 
@@ -46,13 +54,14 @@ const dashboard = () => {
           Welcome,Roshan</p>
           <div className='flex gap-4'>
           <button onClick={()=> setShowCreateResume(true)} className='w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border-dashed border-slate-300 group hover:border-indigo-500 hover:shadow-lg transition-all duration-300 cursor-pointer
-          '>
+     
+     '>
             <PlusIcon className='size-11 transition-all duration-300 p-2.5 bg-gradient-to-br from-indigo-300 to-indigo-500 text-white rounded-full
             '/> <p className='text-sm group-hover:text-indigo-600 transition-all duration-300'>
               Create Resume
             </p>
           </button>
-           <button className='w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border-dashed border-slate-300 group hover:border-purple-500 hover:shadow-lg transition-all duration-300 cursor-pointer
+           <button onClick={()=> setShowUploadeResume(true)} className='w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 text-slate-600 border-dashed border-slate-300 group hover:border-purple-500 hover:shadow-lg transition-all duration-300 cursor-pointer
           '>
             <UploadCloudIcon className='size-11 transition-all duration-300 p-2.5 bg-gradient-to-br from-purple-300 to-purple-500 text-white rounded-full
             '/> <p className='text-sm group-hover:text-purple-600 transition-all duration-300'>
@@ -68,7 +77,7 @@ const dashboard = () => {
 
               const baseColor = colors[index % colors.length];
               return(
-                <button key={index} className='relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border group hover:shadow-lg transition-all duration-300 cursor-pointer'
+                <button key={index} onClick={()=> navigate (`/app/builder/${resume._id}`)} className='relative w-full sm:max-w-36 h-48 flex flex-col items-center justify-center rounded-lg gap-2 border group hover:shadow-lg transition-all duration-300 cursor-pointer'
                 style={{background: `linear-gradient(135deg, ${baseColor}10,${baseColor}40)`,borderColor: baseColor + '40'}}>
 
                   <FilePenLineIcon className='size-7 group-hover:scale-105 transition-all' style={{color: baseColor}}/>
@@ -138,7 +147,8 @@ const dashboard = () => {
                           )}
 
                         </div>
-                      </label>
+                      </label> 
+                      <input type="file" id='resume-input' accept='.pdf' hidden onChange={(e)=>setResume(e.target.files[0])} />
                     </div>
 
                    <button className='w-full py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors
